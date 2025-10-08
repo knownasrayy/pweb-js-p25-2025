@@ -7,18 +7,18 @@ form.addEventListener("submit", async (e) => {
   const username = document.getElementById("username").value.trim();
   const password = document.getElementById("password").value.trim();
 
-  messageEl.textContent = "Vérification en cours...";
+  messageEl.textContent = "Verifikasi sedang berlangsung...";
   messageEl.className = "message";
 
   if (!username || !password) {
-    messageEl.textContent = "Veuillez remplir tous les champs.";
+    messageEl.textContent = "Silakan lengkapi semua bidang.";
     messageEl.classList.add("error");
     return;
   }
 
   try {
     const response = await fetch("https://dummyjson.com/users");
-    if (!response.ok) throw new Error("Erreur de connexion au serveur.");
+    if (!response.ok) throw new Error("Kesalahan koneksi server.");
 
     const data = await response.json();
     const users = data.users;
@@ -34,7 +34,7 @@ form.addEventListener("submit", async (e) => {
     if (user) {
       localStorage.setItem("firstName", user.firstName);
 
-      messageEl.textContent = `Connexion réussie! Bienvenue ${user.firstName} 👋`;
+      messageEl.textContent = `Koneksi berhasil! Selamat datang! ${user.firstName} 👋`;
       messageEl.classList.add("success");
 
       setTimeout(() => {
@@ -46,7 +46,7 @@ form.addEventListener("submit", async (e) => {
     }
   } catch (error) {
     console.error(error);
-    messageEl.textContent = "Erreur de connexion au serveur. Veuillez réessayer.";
+    messageEl.textContent = "Kesalahan koneksi server. Silakan coba lagi.";
     messageEl.classList.add("error");
   }
 });
