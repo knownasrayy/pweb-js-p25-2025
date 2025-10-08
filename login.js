@@ -17,26 +17,26 @@ form.addEventListener("submit", async (e) => {
   }
 
   try {
-    // Fetch data dari DummyJSON API
     const response = await fetch("https://dummyjson.com/users");
     if (!response.ok) throw new Error("Erreur de connexion au serveur.");
 
     const data = await response.json();
     const users = data.users;
 
-    // Cek apakah username dan password cocok
+    console.log("Username yang diketik:", username);
+    console.log("Password yang diketik:", password);
+    console.log("Data Users dari API:", users);
+
     const user = users.find(
       (u) => u.username === username && u.password === password
     );
 
     if (user) {
-      // Simpan firstName ke localStorage
       localStorage.setItem("firstName", user.firstName);
 
       messageEl.textContent = `Connexion réussie! Bienvenue ${user.firstName} 👋`;
       messageEl.classList.add("success");
 
-      // Redirect ke halaman recipes.html setelah 1.5 detik
       setTimeout(() => {
         window.location.href = "recipes.html";
       }, 1500);
