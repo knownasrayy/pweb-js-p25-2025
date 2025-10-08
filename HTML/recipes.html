@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipes Collection - AYO MASAK!</title>
+    <link rel="stylesheet" href="recipes.css" />
+</head>
+<body>
+    <header>
+        <div class="logo">AYO MASAK<br /><span>Rayhan's Kitchen</span></div>
+        <nav>
+            <a href="#">Kursus</a>
+            <a href="#">Resep</a>
+            <a href="#">Team</a>
+        </nav>
+        <div class="user-info">
+            <span id="userName" class="user-name"></span>
+            <button id="logoutBtn" class="logout-btn">Logout</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="overlay">
+            <h1>Kumpulan Resep lezat parah kalcer abiez!</h1>
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Cari resep berdasarkan nama, bahan, atau masakan..." />
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <div class="filter-container">
+            <div class="filter-group">
+                <label for="cuisineFilter">Filter by Cuisine:</label>
+                <select id="cuisineFilter">
+                    <option value="">All Cuisines</option>
+                </select>
+            </div>
+        </div>
+
+        <div id="recipe-grid" class="card-grid">
+            </div>
+        
+        <div class="loader" id="loader"></div>
+
+        <div class="show-more-container">
+            <button id="showMoreBtn" class="show-more-btn">Show More</button>
+        </div>
+    </main>
+
+    <script src="recipes.js"></script>
+</body>
+</html>
