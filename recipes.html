@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AYO MASAK!</title>
+  <link rel="stylesheet" href="recipes.css" />
+</head>
+
+<body>
+  <header>
+    <div class="logo">AYO MASAK<br><span>Rayhan's Kitchen</span></div>
+    <nav>
+      <a href="#">Kursus Digital</a>
+      <a href="#">Kursus Online</a>
+      <a href="#">Kursus Offline</a>
+      <a href="#">Resep</a>
+      <a href="#">Team</a>
+      <a href="#">Pesanan Khusus</a>
+    </nav>
+
+    <div class="icons">
+      <span id="userName" class="user-name"></span>
+      <button id="logoutBtn" class="logout-btn">Logout</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="overlay">
+      <h1>Kumpulan Resep lezat parah kalcer abiez!</h1>
+      <div class="search-box">
+        <input type="text" placeholder="9999 resep dari seluruh dunia..." />
+        <button>Cari →</button>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <div class="breadcrumb">
+      <a href="#">Beranda</a> &gt; <a href="#">Resep Makanan</a>
+    </div>
+
+    <h2>Kumpulan resep</h2>
+
+    <div class="card-grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1567306226416-28f0efdc88ce?auto=format&fit=crop&w=600&q=60" alt="Pommes" />
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1506806732259-39c2d0268443?auto=format&fit=crop&w=600&q=60" alt="Carottes" />
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=600&q=60" alt="Potirons" />
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1565958011702-44e211b59e1a?auto=format&fit=crop&w=600&q=60" alt="Courgettes" />
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Mengecek apakah user sudah login
+    const firstName = localStorage.getItem("firstName");
+    const userNameEl = document.getElementById("userName");
+
+    if (!firstName) {
+      window.location.href = "login.html"; // redirect kalau belum login
+    } else {
+      userNameEl.textContent = `Halo, ${firstName}! 👋`;
+    }
+
+    // Tombol Logout
+    document.getElementById("logoutBtn").addEventListener("click", () => {
+      localStorage.removeItem("firstName");
+      alert("Kamu telah logout!");
+      window.location.href = "login.html";
+    });
+  </script>
+</body>
+</html>
